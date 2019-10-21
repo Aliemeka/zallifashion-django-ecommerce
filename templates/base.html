@@ -1,0 +1,159 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" href="{% static 'img/g37.png' %}">
+
+    <!--Styles-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+
+    <!--Icons-->
+    <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+
+    <title>{% block title %} {% endblock title %}Zalli Fashion</title>
+</head>
+<body>
+    <!--Page Loader-->
+    <div class="page-loader" id="page-loader">
+        <div class="loader"></div>
+    </div>
+    <!--Navigation-->
+    <nav id="top" class="container-fluid navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand my-brand" href="{% url 'home' %}"><h2>Zalli Fashion</h2></a>
+
+            <!--Toggle control-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#targetnav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="container collapse navbar-collapse" id="targetnav">
+            <form class="navbar-form navbar-right" role="submit">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-sm btn-success">
+                    <span class="glyphicon glyphicon-search"></span></button>
+            </form>
+    
+            <!--Navlinks-->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Collections
+                        <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Children</a></li>
+                        </ul>
+                    </li> 
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Styles
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Trendy</a></li>
+                        <li><a href="#">Summer Styles</a></li>
+                        <li><a href="#">Coporate</a></li>
+                        <li><a href="#">Traditional</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'shopping-cart' %}">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <sup><span class="badge">0</span></sup>
+                    </a>
+                </li>
+                <li><a href="{% url 'account_logout' %}"><button class="btn btn-sm login-btn">
+                    Sign-out <span class="glyphicon glyphicon-log-out"></span>
+                </button></a></li> 
+                {% else %}
+                <li><a href="{% url 'account_login' %}"><button class="btn btn-sm login-btn">
+                    Login <span class="glyphicon glyphicon-log-in"></span>
+                </button></a></li>  
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    
+    {% endblock %}
+
+    <!--Scroll up button-->
+    <a id="gotop" class="go-top">
+        <b><span class="glyphicon glyphicon-chevron-up"></span></b>
+    </a>
+
+
+    <!--Footer-->
+    <footer class="container-fluid footer panel bg-dark">
+        <div class="panel-body bg-dark row">
+            <!--Contact us-->
+            <div class="col-sm-4">
+                <h3>Contact us <small><span class="glyphicon glyphicon-info-sign"></span></small></h3>
+                <address>
+                    <strong><span class="glyphicon glyphicon-map-marker"></span></strong>
+                     No 123 abc street, XYZ city.<br>
+                    <span class="icon-phone"> </span> 08030000000
+                </address>
+                <address> 
+                    <strong>Emeka Allison</strong><br> 
+                    <a href="mailto:emekaallison4@gmail.com?">emekaallison4@gmail.com</a> 
+                </address>
+                <ul class="social-links">
+                    <li><a class="social-link" href="#" title="Twitter"><span class="icon-twitter"></span></a></li>
+                    <li><a class="social-link" href="#" title="Facebook"><span class="icon-facebook"></span></a></li>
+                    <li><a class="social-link" href="#" title="Instagram"><span class="icon-instagram"></span></a></li>
+                    <li><a class="social-link" href="#" title="Snapchat"><span class="icon-snapchat-ghost"></span></a></li>
+                </ul>
+            </div>
+            <!--Quicklinks-->
+            <div class="col-sm-4">
+                <h3>Quicklinks <small><span class="glyphicon glyphicon-link"></span></small></h3>
+                <ul>
+                    <li><a href="#">Men</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Children</a></li>
+                    <li><a href="#">Styles</a></li>
+                    <li><a href="{% url 'shop' %}">Shop</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Shopping cart</a></li>
+                </ul>
+            </div>
+
+            <!--Extra Info-->
+            <div class="col-sm-4">
+                <h3>Extra Info <small><span class="glyphicon glyphicon-info-sign"></span></small></h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, 
+                    ullam quod. Eius, in? Iusto soluta eos aut blanditiis dolorum, facilis,
+                     modi eligendi nisi aspernatur consequuntur
+                     eaque laborum magnam accusantium perspiciatis?
+                </p>
+            </div>
+        </div>
+
+        <!--Panel Footer-->
+        <div class="panel-footer text-center">
+            <p><img src="{% static 'img/g23.png' %}"></p>
+            <p>Zalli Fashion &copy; <script>document.write(new Date().getFullYear());</script></p>
+            <p class="text-muted">Designed by <a href="#">Lkandu<sup>TM</sup></a></p>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

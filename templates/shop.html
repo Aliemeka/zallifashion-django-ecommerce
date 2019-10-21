@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+    {% block title %} Shop list - {% endblock title %}
+
+    {% block content %}
+    <!--Greeting-->
+    <section id="greeting" class="container-fluid greet-section">
+        <div class="jumbotron cloak text-center"> 
+            <h1>Shop</h1>
+            <h3>Classes and trendy styles</h3>
+            <p ><i>Find items you want</i></p>
+        </div>
+    </section>
+
+
+    <!--main-->
+    <main class="shop-main container-fluid">
+        <section class="col-xs-9">
+            <div class="well well-sm">
+                <h2 class="text-center sec-heading">Latest-items</h2><hr>
+                {% if items %}
+                
+                <div class="row">
+                    <!--Sales item-->
+                    {% for item in items %}
+                    <div class="item-slot col-sm-6 col-md-4">
+                        <div class="item-card">
+                            <div class="item-img">
+                                <img class="img-responsive" src="{{ item.image.url }}">
+                            </div>
+                            <div class="container-fluid text-center item-details">
+                                <h4>{{ item.name }}</h4>
+                                <h4>N <span>{{ item.price }}</span></h4>
+                                <p class="text-muted">XS <button class="btn btn-sm view-button">View</button>
+                                    <button class="btn btn-sm view-button" title="add to cart">+</button>
+                                    <button class="btn btn-sm view-button wishlist-button" id="wishlist-button">
+                                        <span class="icon-heart"></span>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            
+                </div>
+
+                {% else %}
+                <!--When there are no materials in stock-->
+                <div class="empty-message text-muted text-center text-lead">
+                    <h1 class="cart-image"><span class="icon-face"></span></h1>
+                    <p>Currently out of stock</p>
+                    <a href="index.html"><button class="btn btn-md view-button">Return home
+                        <span class="icon-arrow-left"></span>
+                    </button></a>
+                </div>
+                {% endif %}
+                <hr>
+            </div>
+        </section>
+        <aside class="col-xs-3">
+
+        </aside>
+    </main>
+    {% endblock %}

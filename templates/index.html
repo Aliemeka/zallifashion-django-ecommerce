@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+    {% block content %}
+    <!--Greeting-->
+    <section id="greeting" class="container-fluid greet-section">
+        <div class="jumbotron cloak text-center">
+            <h1 class="top-icon"><img src="{% static 'img/g39.png' %}"></h1>
+            <h1>Zalli Fashion</h1>
+            <h3>Classy and trendy styles</h3>
+            <p ><i>You can take a tour around</i></p>
+        </div>
+    </section>
+
+    <!--Collections for men, women and children-->
+    <section id="collection" class="bg-dark sub-section">
+        <div class="container pack">
+            <h2 class="text-center sec-heading">Collections</h2><hr>
+
+            <div class="row">
+                <!--Mens-->
+                <div class="col-sm-4 inner-pack" id="men">
+                    <h3 class="sec-label">Men</h3>
+                    <div>
+                        <img class="img-responsive collection-image" src="{% static 'img/man.jpg' %}" alt="man-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+
+                <!--Womens-->
+                <div class="col-sm-4 inner-pack" id="women">
+                    <h3 class="sec-label">Women</h3>
+                    <div>
+                        <img class="img-responsive collection-image" src="{% static 'img/woman.jpg' %}" alt="woman-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+
+                <!--Children-->
+                <div class="col-sm-4 inner-pack" id="children">
+                    <h3 class="sec-label">Children</h3>
+                    <div>
+                        <img class="img-responsive collection-image" src="{% static 'img/child.jpg' %}" alt="children-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Styles Trendy Summer Coporate Traditional-->
+    <section id="styles" class="sub-section">
+        <div class="container pack">
+            <h2 class="text-center sec-heading">Styles</h2><hr>
+
+            <div class="row">
+                <!--Trendy div-->
+                <div class="col-sm-6 p-2" id="trendy">
+                    <h3 class="sec-label">Trendy</h3>
+                    <div>
+                        <img class="img-responsive style-photo" src="{% static 'img/trendy.jpg' %}" alt="trendy-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+
+                <!--Summer-->
+                <div class="col-sm-6" id="summer">
+                    <h3 class="sec-label">Summer Styles</h3>
+                    <div>
+                        <img class="img-responsive style-photo" src="{% static 'img/summer.jpg' %}" alt="summer-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Coporate-->
+                <div class="col-sm-6" id="coporate">
+                    <h3 class="sec-label">Office Wears</h3>
+                    <div>
+                        <img class="img-responsive style-photo" src="{% static 'img/corporate.jpg' %}" alt="coporate-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+
+                <!--Traditional-->
+                <div class="col-sm-6" id="traditional">
+                    <h3 class="sec-label">Traditional</h3>
+                    <div>
+                        <img class="img-responsive style-photo" src="{% static 'img/traditional.jpg' %}" alt="traditional-photo"/>
+                    </div>
+                    <a><button class="btn btn-md view-button">
+                        <span class="glyphicon glyphicon-eye-open"> </span> View collection</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock %}
+

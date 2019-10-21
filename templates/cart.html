@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+    {% block title %} Shopping Cart - {% endblock title %}
+
+    {% block content %}
+    <!--Greeting-->
+    <section id="greeting" class="container-fluid greet-section shopping-greet">
+        <div class="jumbotron cloak text-center">
+            <h1>Shopping Cart</h1>
+            <h3>Your choice items</h3>
+            <p><i class="text-muted"><a href="{% url 'home' %}"><span class="glyphicon glyphicon-home"></span> Home</a> > <span>Shopping Cart</span></i></p>
+        </div>
+    </section>
+
+    <main id="CartArea" class="container-fluid">
+        <!--Cart Menu-->
+        <section id="Shopitems" class="bg-light m-1  col-sm-8 sub-section">
+            <div class="well well-sm">
+                <h3 class="text-center">Your Cart Items</h3><hr>
+                <div class="empty-message text-muted text-center text-lead">
+                    <h1 class="cart-image"><span class="icon-shopping-cart"></span></h1>
+                    <p>There are no items in your cart</p>
+                    <a href="{% url 'home' %}"><button class="btn btn-md view-button">Start Shopping
+                        <span class="icon-shopping-bag"></span>
+                    </button></a>
+                </div>
+                <hr>
+            </div>
+        </section>
+
+        <section id="Sidebar" class="col-sm-4 m-1">
+            <div class="sidebar panel">
+                <div class="band text-justify bg-dark panel-header">
+                    <h4>Proceed to checkout</h4>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <p>Total Items: <b id="total-items">0</b></p>
+                <p>Sum Total: <b id="sum-total">0</b></p>
+            </div>
+
+            <div class="panel-footer">
+                <button id="empty-cart" class="btn btn-sm btn-danger text-center">Empty Cart
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <a href="payment.html"><button class="btn btn-sm btn-success">Proceed to Payment
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </button></a>
+            </div>
+
+        </section>
+    </main> 
+    {% endblock %}
